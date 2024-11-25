@@ -1,0 +1,10 @@
+# locale\en\LC_MESSAGES\django.po
+
+msgid "welcome"
+msgstr "Welcome"
+
+msgid "users"
+msgstr "Users"
+
+msgid "EN"
+msgstr "ENG"

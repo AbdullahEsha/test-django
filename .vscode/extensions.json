@@ -1,0 +1,18 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "mikestead.dotenv",
+    "prisma.prisma",
+    "formulahendry.auto-rename-tag",
+    "bradlc.vscode-tailwindcss",
+    "ms-azuretools.vscode-docker",
+    "redhat.vscode-yaml",
+    "graphql.vscode-graphql",
+    "ms-vscode.vscode-typescript-next",
+    "streetsidesoftware.code-spell-checker",
+    "christian-kohler.path-intellisense",
+    "nrwl.angular-console",
+    "firsttris.vscode-jest-runner"
+  ]
+}

@@ -1,0 +1,48 @@
+# workspace/Dockerfile
+FROM ubuntu:22.04
+
+# Install essential packages
+RUN apt-get update && apt-get install -y \
+    curl \
+    git \
+    wget \
+    unzip \
+    nginx \
+    software-properties-common \
+    build-essential
+
+# Install Node.js
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
+
+# Install PHP
+RUN add-apt-repository ppa:ondrej/php \
+    && apt-get update \
+    && apt-get install -y php8.2-fpm php8.2-cli
+
+# Install Python
+RUN apt-get install -y python3 python3-pip
+
+# Install Java
+RUN apt-get install -y openjdk-11-jdk
+
+# Install Go
+RUN wget https://go.dev/dl/go1.21.5.linux-amd64.tar.gz \
+    && tar -C /usr/local -xzf go1.21.5.linux-amd64.tar.gz \
+    && rm go1.21.5.linux-amd64.tar.gz
+
+# Install Flutter
+RUN wget https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.16.0-stable.tar.xz \
+    && tar xf flutter_linux_3.16.0-stable.tar.xz -C /opt \
+    && rm flutter_linux_3.16.0-stable.tar.xz
+
+# Add to PATH
+ENV PATH="/usr/local/go/bin:/opt/flutter/bin:${PATH}"
+
+# Set up workspace directory
+WORKDIR /app
+
+COPY deploy.sh /app/deploy.sh
+RUN chmod +x /app/deploy.sh
+
+CMD ["tail", "-f", "/dev/null"]

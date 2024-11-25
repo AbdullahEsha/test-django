@@ -1,0 +1,100 @@
+{% extends "_base.html" %} {% block content %}
+<div class="container mx-auto mt-4">
+  <h1 class="text-2xl font-bold">Register</h1>
+  <form action="/register/" method="POST">
+    {% csrf_token %}
+    <!-- username (required) -->
+    <div class="mb-4">
+      <label for="username" class="block text-sm font-medium text-gray-700">
+        Username <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="text"
+        id="username"
+        name="username"
+        placeholder="Enter your username"
+        required
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+      />
+      <p class="mt-1 text-xs text-gray-500">
+        Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+      </p>
+    </div>
+
+    <!-- password (required) -->
+    <div class="mb-4">
+      <label for="password" class="block text-sm font-medium text-gray-700">
+        Password <span class="text-red-500">*</span>
+      </label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+      />
+    </div>
+
+    <!-- first name (optional) -->
+    <div class="mb-4">
+      <label for="first_name" class="block text-sm font-medium text-gray-700">
+        First Name
+      </label>
+      <input
+        type="text"
+        id="first_name"
+        name="first_name"
+        placeholder="Enter your first name (optional)"
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+      />
+    </div>
+
+    <!-- last name (optional) -->
+    <div class="mb-4">
+      <label for="last_name" class="block text-sm font-medium text-gray-700">
+        Last Name
+      </label>
+      <input
+        type="text"
+        id="last_name"
+        name="last_name"
+        placeholder="Enter your last name (optional)"
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+      />
+    </div>
+
+    <!-- email (optional) -->
+    <div class="mb-4">
+      <label for="email" class="block text-sm font-medium text-gray-700">
+        Email
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email (optional)"
+        class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+      />
+    </div>
+
+    <div class="mb-2 text-sm text-gray-500">
+      <span class="text-red-500">*</span> Required fields
+    </div>
+
+    <button
+      type="submit"
+      class="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+    >
+      Register
+    </button>
+  </form>
+
+  <a
+    href="/login"
+    class="mt-4 block text-sm font-medium text-indigo-600 hover:text-indigo-500"
+  >
+    Already have an account? Login
+  </a>
+</div>
+{% endblock content %}
